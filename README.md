@@ -1,2 +1,8 @@
-# Atividade1-Paulo-Rodolfo
-Repositório utilizado para a entrega da atividade 1 da disciplina de computação gráfica.
+Repositório 1:
+
+Repositório utilizado para entrega da atividade 1.
+
+Membros:
+
+Nome: Paulo Alexander Simões, RA: 11084915
+Nome: Rodolfo Azevedo dos Santos, RA: 11093514
