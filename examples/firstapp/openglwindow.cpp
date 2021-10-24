@@ -43,6 +43,18 @@ void OpenGLWindow::paintUI() {
     ImGui::Text("Application average %.3f ms/frame (%.1f FPS)",
                 1000.0 / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
+    // 100x50 button
+    if (ImGui::Button("Press me!", ImVec2(100, 50))) {
+      fmt::print("Button pressed.\n");
+    }
+
+    // Nx50 button, where N is the remaining width available
+    ImGui::Button("Press me!", ImVec2(-1, 50));
+    // See also IsItemHovered, IsItemActive, etc
+    if (ImGui::IsItemClicked()) {
+      fmt::print("Button pressed.\n");
+    }
+    
     // Window end
     ImGui::End();
   }
