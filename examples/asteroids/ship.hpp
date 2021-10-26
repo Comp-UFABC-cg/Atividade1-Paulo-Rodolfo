@@ -29,6 +29,7 @@ class Ship {
   GLint m_colorLoc{};
   GLint m_scaleLoc{};
   GLint m_rotationLoc{};
+  GLint m_positionLoc{};
 
   GLuint m_vao{};
   GLuint m_vbo{};

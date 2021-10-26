@@ -11,6 +11,7 @@ void Ship::initializeGL(GLuint program) {
   m_rotationLoc = abcg::glGetUniformLocation(m_program, "rotation");
   m_scaleLoc = abcg::glGetUniformLocation(m_program, "scale");
   m_translationLoc = abcg::glGetUniformLocation(m_program, "translation");
+  m_positionLoc = abcg::glGetUniformLocation(m_program, "position");
 
   m_rotation = 0.0f;
   m_translation = glm::vec2(0);
