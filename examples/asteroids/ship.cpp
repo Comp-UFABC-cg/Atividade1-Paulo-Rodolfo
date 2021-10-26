@@ -16,6 +16,7 @@ void Ship::initializeGL(GLuint program) {
   m_rotation = 0.0f;
   m_translation = glm::vec2(0);
   m_velocity = glm::vec2(0);
+  m_position = glm::vec2(0);
 
   std::array<glm::vec2, 24> positions{
       // Ship body
@@ -113,6 +114,7 @@ void Ship::paintGL(const GameData &gameData) {
   abcg::glUniform1f(m_scaleLoc, m_scale);
   abcg::glUniform1f(m_rotationLoc, m_rotation);
   abcg::glUniform2fv(m_translationLoc, 1, &m_translation.x);
+  abcg::glUniform2fv(m_positionLoc, 1, &m_position.x);
 
   // Restart thruster blink timer every 100 ms
   if (m_trailBlinkTimer.elapsed() > 100.0 / 1000.0) m_trailBlinkTimer.restart();
