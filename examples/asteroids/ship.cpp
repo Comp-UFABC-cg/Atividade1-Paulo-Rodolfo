@@ -46,6 +46,8 @@ void Ship::initializeGL(GLuint program) {
   // Normalize
   for (auto &position : positions) {
     position /= glm::vec2{15.5f, 15.5f};
+  // Center in the base of the screen
+    position += glm::vec2{0.5f,-6.5f};
   }
 
   const std::array indices{0, 1, 3,
