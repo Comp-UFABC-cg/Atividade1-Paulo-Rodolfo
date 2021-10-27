@@ -21,6 +21,7 @@ class OpenGLWindow : public abcg::OpenGLWindow {
   void terminateGL() override;
 
  private:
+  GLuint m_starsProgram{};
   GLuint m_objectsProgram{};
 
   int m_viewportWidth{};
@@ -29,6 +30,7 @@ class OpenGLWindow : public abcg::OpenGLWindow {
   GameData m_gameData;
 
   Ship m_ship;
+  StarLayers m_starLayers;
 
   abcg::ElapsedTimer m_restartWaitTimer;
 
