@@ -13,7 +13,7 @@ void Ship::initializeGL(GLuint program) {
   m_translationLoc = abcg::glGetUniformLocation(m_program, "translation");
   m_positionLoc = abcg::glGetUniformLocation(m_program, "position");
 
-  m_rotation = 0.0f;
+  m_rotation = 1.0f;
   m_translation = glm::vec2(0);
   m_velocity = glm::vec2(0);
   m_position = glm::vec2(0);
@@ -151,9 +151,9 @@ void Ship::terminateGL() {
 void Ship::update(const GameData &gameData, float deltaTime) {
   // Rotate
   if (gameData.m_input[static_cast<size_t>(Input::Left)])
-    m_rotation = glm::wrapAngle(m_rotation + 4.0f * deltaTime);
+    m_rotation = m_rotation - 4.0f * deltaTime;
   if (gameData.m_input[static_cast<size_t>(Input::Right)])
-    m_rotation = glm::wrapAngle(m_rotation - 4.0f * deltaTime);
+    m_rotation = m_rotation + 4.0f * deltaTime;
 
   // Apply thrust
   if (gameData.m_input[static_cast<size_t>(Input::Up)] &&

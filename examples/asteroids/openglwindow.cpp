@@ -45,13 +45,7 @@ void OpenGLWindow::handleEvent(SDL_Event &event) {
       m_gameData.m_input.reset(static_cast<size_t>(Input::Up));
   }
   if (event.type == SDL_MOUSEMOTION) {
-    glm::ivec2 mousePosition;
-    SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
-
-    glm::vec2 direction{glm::vec2{mousePosition.x - m_viewportWidth / 2,
-                                  mousePosition.y - m_viewportHeight / 2}};
-    direction.y = -direction.y;
-    m_ship.setRotation(std::atan2(direction.y, direction.x) - M_PI_2);
+   
   }
 }
 
