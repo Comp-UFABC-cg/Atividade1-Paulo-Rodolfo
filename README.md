@@ -1,8 +1,13 @@
-<n> Repositório 1<\n>
+# ATIVIDADE 1
 
-Repositório utilizado para entrega da atividade 1.
+Este repositório contém o código fonte e link da aplicação rodando em <br>
+WebAssembly.
 
-Membros:
+A aplicação foi feita utilizando a seguinte arquitetura: C++, OpenGL e a biblioteca ABCG. <br>
 
-Nome: Paulo Alexander Simões, RA: 11084915
-Nome: Rodolfo Azevedo dos Santos, RA: 11093514
+__Membros:__
+
+__Nome:__ Paulo Alexander Simões, `<b>RA:</b>11084915 <br>
+__Nome:__ Rodolfo Azevedo dos Santos, <b>RA:</b> 11093514
+
+
