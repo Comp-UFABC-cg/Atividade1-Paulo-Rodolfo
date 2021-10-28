@@ -86,8 +86,8 @@ void Bullets::update(Ship &ship, const GameData &gameData, float deltaTime) {
       ship.m_bulletCoolDownTimer.restart();
 
       // Bullets are shot in the direction of the ship's forward vector
-      glm::vec2 forward{glm::rotate(glm::vec2{0.0f, 1.0f}, ship.m_rotation)};
-      glm::vec2 right{glm::rotate(glm::vec2{1.0f, 0.0f}, ship.m_rotation)};
+      glm::vec2 forward{glm::vec2{0.0f, 1.0f}};
+      glm::vec2 right{glm::vec2{1.0f, 0.0f}};
       const auto cannonOffset{(11.0f / 15.5f) * ship.m_scale};
       const auto bulletSpeed{2.0f};
 
