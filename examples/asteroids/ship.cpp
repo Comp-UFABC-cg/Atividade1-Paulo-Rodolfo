@@ -159,7 +159,7 @@ void Ship::update(const GameData &gameData, float deltaTime) {
   if (gameData.m_input[static_cast<size_t>(Input::Up)] &&
       gameData.m_state == State::Playing) {
     // Thrust in the forward vector
-    glm::vec2 forward = glm::rotate(glm::vec2{0.0f, 1.0f}, m_rotation);
+    glm::vec2 forward = glm::vec2{0.0f, 1.0f};
     m_velocity += forward * deltaTime;
   }
 }
