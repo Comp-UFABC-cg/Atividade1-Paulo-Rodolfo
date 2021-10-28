@@ -83,6 +83,7 @@ void OpenGLWindow::restart() {
 
   m_starLayers.initializeGL(m_starsProgram, 25);
   m_ship.initializeGL(m_objectsProgram);
+  m_asteroids.initializeGL(m_objectsProgram, 3);
 }
 
 void OpenGLWindow::update() {
@@ -97,6 +98,7 @@ void OpenGLWindow::update() {
 
   m_ship.update(m_gameData, deltaTime);
   m_starLayers.update(m_ship, deltaTime);
+  m_asteroids.update(m_ship, deltaTime);
 }
 
 void OpenGLWindow::paintGL() {
@@ -106,6 +108,7 @@ void OpenGLWindow::paintGL() {
   abcg::glViewport(0, 0, m_viewportWidth, m_viewportHeight);
 
   m_starLayers.paintGL();
+  m_asteroids.paintGL();
   m_ship.paintGL(m_gameData);
 }
 
@@ -146,6 +149,8 @@ void OpenGLWindow::terminateGL() {
   abcg::glDeleteProgram(m_starsProgram);
   abcg::glDeleteProgram(m_objectsProgram);
 
+  m_asteroids.terminateGL();
   m_ship.terminateGL();
   m_starLayers.terminateGL();
+  
 }
