@@ -162,4 +162,18 @@ void Ship::update(const GameData &gameData, float deltaTime) {
     glm::vec2 forward = glm::vec2{0.0f, 1.0f};
     m_velocity += forward * deltaTime;
   }
+
+  //FREIAR NAVE
+  if (gameData.m_input[static_cast<size_t>(Input::Down)] &&
+      gameData.m_state == State::Playing) {
+
+    glm::vec2 backward = glm::vec2{0.0f, -1.0f};
+    //verifica se a velocidade já é zero para não "cair"
+    if(m_velocity.y <= 0.0f) {
+      m_velocity.y = m_velocity.y; }
+    
+    else {
+    m_velocity += backward * deltaTime;
+  }
+}
 }
