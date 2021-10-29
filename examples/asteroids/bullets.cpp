@@ -92,11 +92,11 @@ void Bullets::update(Ship &ship, const GameData &gameData, float deltaTime) {
       const auto bulletSpeed{2.0f};
 
       Bullet bullet{.m_dead = false,
-                    .m_translation = ship.m_translation + right * cannonOffset,
+                    .m_translation = ship.m_position + right * cannonOffset,
                     .m_velocity = ship.m_velocity + forward * bulletSpeed};
       m_bullets.push_back(bullet);
 
-      bullet.m_translation = ship.m_translation - right * cannonOffset;
+      bullet.m_translation = ship.m_position - right * cannonOffset;
       m_bullets.push_back(bullet);
 
 
