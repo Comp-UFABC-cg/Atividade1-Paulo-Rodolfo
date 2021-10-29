@@ -16,7 +16,7 @@ void Ship::initializeGL(GLuint program) {
   m_rotation = 1.0f;
   m_translation = glm::vec2(0);
   m_velocity = glm::vec2(0);
-  m_position = {glm::vec2{0, -6.5}};
+  m_position = {glm::vec2{0.5f, -6.5f}};
 
   std::array<glm::vec2, 24> positions{
       // Ship body
