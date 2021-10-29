@@ -125,6 +125,7 @@ void OpenGLWindow::paintUI() {
   abcg::OpenGLWindow::paintUI();
 
   {
+    if (m_gameData.m_state == State::GameOver) {
     const auto size{ImVec2(300, 85)};
     const auto position{ImVec2((m_viewportWidth - size.x) / 2.0f,
                                (m_viewportHeight - size.y) / 2.0f)};
@@ -134,15 +135,55 @@ void OpenGLWindow::paintUI() {
                            ImGuiWindowFlags_NoTitleBar |
                            ImGuiWindowFlags_NoInputs};
     ImGui::Begin(" ", nullptr, flags);
-    ImGui::PushFont(m_font);
+    ImGui::PushFont(m_font);  
 
-    if (m_gameData.m_state == State::GameOver) {
-      ImGui::Text("Game Over!");
-    } else if (m_gameData.m_state == State::Win) {
-      ImGui::Text("*You Win!*");
+    ImGui::Text("  Perdeu!");
+    ImGui::PopFont();
     }
 
+    else if (m_gameData.m_state == State::Win) {
+    const auto size{ImVec2(300, 85)};
+    const auto position{ImVec2((m_viewportWidth - size.x) / 2.0f,
+                               (m_viewportHeight - size.y) / 2.0f)};
+    ImGui::SetNextWindowPos(position);
+    ImGui::SetNextWindowSize(size);
+    ImGuiWindowFlags flags{ImGuiWindowFlags_NoBackground |
+                           ImGuiWindowFlags_NoTitleBar |
+                           ImGuiWindowFlags_NoInputs};
+    ImGui::Begin(" ", nullptr, flags);
+    ImGui::PushFont(m_font);  
+
+    ImGui::Text("  Venceu!");
     ImGui::PopFont();
+
+
+    }
+
+    else {
+    const auto size{ImVec2(470, 600)};
+    const auto position{ImVec2((m_viewportWidth - size.x) / 2.0f,
+                               (m_viewportHeight - size.y) / 2.0f)};
+    ImGui::SetNextWindowPos(position);
+    ImGui::SetNextWindowSize(size);
+    ImGuiWindowFlags flags{ImGuiWindowFlags_NoBackground |
+                           ImGuiWindowFlags_NoTitleBar |
+                           ImGuiWindowFlags_NoInputs};
+    ImGui::Begin(" ", nullptr, flags);
+    //ImGui::PushFont(m_font);  
+
+    //Validacao para exibicao do nome da velocidade
+    float validacao_vel =  m_ship.m_velocity.y;
+    if (validacao_vel < 0.10f) {
+      validacao_vel = 0.0f;
+    } else {
+      validacao_vel = m_ship.m_velocity.y;   
+    }
+      ImGui::Text("Velocidade %.2f m/s", validacao_vel );
+    }
+
+
+
+    
     ImGui::End();
   }
 }
