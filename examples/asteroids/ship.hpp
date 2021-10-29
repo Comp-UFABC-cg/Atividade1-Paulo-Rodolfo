@@ -17,6 +17,7 @@ class Ship {
 
   void update(const GameData &gameData, float deltaTime);
   void setRotation(float rotation) { m_rotation = rotation; }
+  void setPosition(glm::vec2 position) { m_position = position; }
 
  private:
   friend Asteroids;
@@ -40,7 +41,7 @@ class Ship {
   float m_scale{0.125f};
   glm::vec2 m_translation{glm::vec2(0)};
   glm::vec2 m_velocity{glm::vec2(0)};
-  glm::vec2 m_position{glm::vec2(0)};
+  glm::vec2 m_position {glm::vec2{0, -6.5}};
 
   abcg::ElapsedTimer m_trailBlinkTimer;
   abcg::ElapsedTimer m_bulletCoolDownTimer;

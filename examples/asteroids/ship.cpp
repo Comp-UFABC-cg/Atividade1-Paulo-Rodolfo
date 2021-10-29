@@ -11,12 +11,12 @@ void Ship::initializeGL(GLuint program) {
   m_rotationLoc = abcg::glGetUniformLocation(m_program, "rotation");
   m_scaleLoc = abcg::glGetUniformLocation(m_program, "scale");
   m_translationLoc = abcg::glGetUniformLocation(m_program, "translation");
-  m_positionLoc = abcg::glGetUniformLocation(m_program, "position");
+  m_positionLoc = abcg::glGetUniformLocation(m_program, "navePosition");
 
   m_rotation = 1.0f;
   m_translation = glm::vec2(0);
   m_velocity = glm::vec2(0);
-  m_position = glm::vec2(0);
+  m_position = {glm::vec2{0, -6.5}};
 
   std::array<glm::vec2, 24> positions{
       // Ship body
@@ -48,6 +48,7 @@ void Ship::initializeGL(GLuint program) {
   // Normalize
   for (auto &position : positions) {
     position /= glm::vec2{15.5f, 15.5f};
+
   // Center in the base of the screen
     position += glm::vec2{0.5f,-6.5f};
   }
@@ -151,9 +152,20 @@ void Ship::terminateGL() {
 void Ship::update(const GameData &gameData, float deltaTime) {
   // Rotate
   if (gameData.m_input[static_cast<size_t>(Input::Left)])
-    m_rotation = m_rotation - 4.0f * deltaTime;
+  {
+     m_rotation = m_rotation - 4.0f * deltaTime;
+    m_position = m_position + m_rotation;
+    m_position = (m_position * m_scale) + m_translation;
+  }
+   
+
   if (gameData.m_input[static_cast<size_t>(Input::Right)])
+  {
     m_rotation = m_rotation + 4.0f * deltaTime;
+    m_position = m_position + m_rotation;
+    m_position = (m_position * m_scale) + m_translation;
+  }
+  
 
   // Apply thrust
   if (gameData.m_input[static_cast<size_t>(Input::Up)] &&
