@@ -31,3 +31,14 @@ __Nome do Jogo:__ Starship Run <br>
 
 <br>__Implementação:__
 
+As mensagens ao jogador são implementadas através do ImGui no qual, a partir da vitória ou derrota são exibidos os textos na tela: "Perdeu!", "Venceu!": <br>
+<br>a)
+ ![image](https://user-images.githubusercontent.com/30665585/139578338-33ca0ee6-611f-4a3d-ba9b-f593481fd17e.png)
+<br>b)
+ ![image](https://user-images.githubusercontent.com/30665585/139578344-14be6064-4a2a-4fd9-bc05-8a4d21a290cf.png)
+ <br><br>Para que a mensagem seja exibida, o programa tem como entrada o m_state (implementado em gamedata.hpp):<br>
+ ![image](https://user-images.githubusercontent.com/30665585/139578478-95c93a57-c9d3-4abe-a275-1b106559968e.png)
+
+
+ 
+
