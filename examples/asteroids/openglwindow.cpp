@@ -171,7 +171,7 @@ void OpenGLWindow::paintUI() {
     } else {
       validacao_vel = m_ship.m_velocity.y;   
     }
-      ImGui::Text("Velocidade %.2f m/s", validacao_vel );
+      ImGui::Text("Velocidade %.2f Km/s", validacao_vel );
     }
 
 
