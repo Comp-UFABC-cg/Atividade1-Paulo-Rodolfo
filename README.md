@@ -7,7 +7,7 @@ A aplicação foi feita utilizando a seguinte arquitetura: C++, OpenGL e a bibli
 
 __Membros:__
 
-__Nome:__ Paulo Alexander Simões, `<b>RA:</b>11084915 <br>
+__Nome:__ Paulo Alexander Simões, <b>RA:</b>11084915 <br>
 __Nome:__ Rodolfo Azevedo dos Santos, <b>RA:</b> 11093514
 
 
