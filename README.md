@@ -39,6 +39,8 @@ As mensagens ao jogador são implementadas através do ImGui no qual, a partir d
  <br><br>Para que a mensagem seja exibida, o programa tem como entrada o m_state (implementado em gamedata.hpp):<br>
  ![image](https://user-images.githubusercontent.com/30665585/139578478-95c93a57-c9d3-4abe-a275-1b106559968e.png)
 
+<br> Os comandos são captados através do OpenGLWindow::handleEvent (dentro de openglwindow.cpp), no qual cada evento do mouse e teclado são tratados e configurados para que uma ação seja executada de modo coerente com a proposta do jogo: <br>
+<br>![image](https://user-images.githubusercontent.com/30665585/139578945-86ea72b8-e150-4030-8cd0-105f55d25a80.png)
 
  
 
