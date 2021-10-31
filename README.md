@@ -31,6 +31,8 @@ __Nome do Jogo:__ Starship Run <br>
 
 <br>__Implementação:__
 
+
+
 As mensagens ao jogador são implementadas através do ImGui no qual, a partir da vitória ou derrota são exibidos os textos na tela: "Perdeu!", "Venceu!": <br>
 <br>a)
  ![image](https://user-images.githubusercontent.com/30665585/139578338-33ca0ee6-611f-4a3d-ba9b-f593481fd17e.png)
@@ -41,6 +43,20 @@ As mensagens ao jogador são implementadas através do ImGui no qual, a partir d
 
 <br> Os comandos são captados através do OpenGLWindow::handleEvent (dentro de openglwindow.cpp), no qual cada evento do mouse e teclado são tratados e configurados para que uma ação seja executada de modo coerente com a proposta do jogo: <br>
 <br>![image](https://user-images.githubusercontent.com/30665585/139578945-86ea72b8-e150-4030-8cd0-105f55d25a80.png)
+
+A movimentação para os lados e para a cima da aeronave consiste em deslocamentos em cada eixo (x para direita e esquerda, y para cima). Já para freiar é necessário aplicar um deslocamento negativo no eixo y e adicionalmente fazer uma validação para que seja verificado se a velocidade já é zero (para não ficar negativa e fazer a nave "cair para trás"):<br>
+Os deslocamentos são implementados no ship.cpp dentro da função Ship::update. O deslocamento para a esquerda é negativo (-4f) e para direita é positivo (+4f) dado a orientação do nosso eixo. Nosso jogo não possui rotação devido a sua natureza de movimentar na vertical.
+<br>
+![image](https://user-images.githubusercontent.com/30665585/139579179-f287196c-aef3-4f38-a71b-f3cb14e8fcd1.png)
+
+Abaixo temos a implementação da aceleração vertical, no qual além de deslocarmos positivamente em Y exibimos o propulsor da nave. <br>
+![image](https://user-images.githubusercontent.com/30665585/139579443-1a8f6612-ada6-4d88-b81c-dcc1ec1da169.png)
+
+Por fim, para implementar o freio utilizamos a implementação abaixo: <br>
+![image](https://user-images.githubusercontent.com/30665585/139579508-07c1f52e-1401-471b-9d1f-68aa9916fcb2.png)
+
+Para todas as ações do jogo é necessário verificar se ainda é possível tomar alguma ação, ou seja, é necessário que o estado seja "Playing", pois de modo contrário o jogador teria ou perdido ou vencido, que em ambos cenários resultam em finalização do jogo.
+
 
  
 
