@@ -16,7 +16,7 @@ void Ship::initializeGL(GLuint program) {
   m_rotation = 1.0f;
   m_translation = glm::vec2(0);
   m_velocity = glm::vec2(0);
-  m_position = glm::vec2{0.0f,-6.5f};
+  m_position = glm::vec2{0.040f,-6.5f};
 
   std::array<glm::vec2, 24> positions{
       // Ship body
@@ -62,10 +62,10 @@ void Ship::initializeGL(GLuint program) {
                            9, 6, 8,
                            8, 6, 7,
                            // Cannons
-                           10, 11, 12,
+                           10, 11, 17,
                            10, 12, 13,
                            14, 15, 16,
-                           14, 16, 17,
+                           10, 16, 17,
                            // Thruster trails
                            18, 19, 20,
                            21, 22, 23};
@@ -154,16 +154,14 @@ void Ship::update(const GameData &gameData, float deltaTime) {
   if (gameData.m_input[static_cast<size_t>(Input::Left)])
   {
      m_rotation = m_rotation - 4.0f * deltaTime;
-    m_position.x = m_position.x + m_rotation;
-    m_position = (m_position * m_scale) + m_translation;
+     m_position.x -= 4.0f * m_scale * deltaTime;
   }
    
 
   if (gameData.m_input[static_cast<size_t>(Input::Right)])
   {
     m_rotation = m_rotation + 4.0f * deltaTime;
-    m_position.x = m_position.x + m_rotation;
-    m_position = (m_position * m_scale) + m_translation;
+    m_position.x += 4.0f * m_scale * deltaTime;
   }
   
 

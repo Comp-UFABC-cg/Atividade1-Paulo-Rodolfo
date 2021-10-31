@@ -82,23 +82,25 @@ void Bullets::update(Ship &ship, const GameData &gameData, float deltaTime) {
   if (gameData.m_input[static_cast<size_t>(Input::Fire)] &&
       gameData.m_state == State::Playing) {
     // At least 250 ms must have passed since the last bullets
-    if (ship.m_bulletCoolDownTimer.elapsed() > 250.0 / 1000.0) {
+    if (ship.m_bulletCoolDownTimer.elapsed() > 200.0 / 1000.0) {
       ship.m_bulletCoolDownTimer.restart();
 
       // Bullets are shot in the direction of the ship's forward vector
+      
       glm::vec2 forward{glm::vec2{0.0f, 1.0f}};
-      glm::vec2 right{glm::vec2{1.00f, 0.0f}};
+      glm::vec2 distBetween{glm::vec2{1.0, 0.0f}};
       const auto cannonOffset{(11.0f / 15.5f) * ship.m_scale};
-      const auto bulletSpeed{2.0f};
+      const auto bulletSpeed{4.0f};
 
       Bullet bullet{.m_dead = false,
-                    .m_translation = ship.m_translation + right * cannonOffset,
+                    .m_translation = (distBetween * cannonOffset),
                     .m_velocity = ship.m_velocity + forward * bulletSpeed};
+      // Amarracao posicao x e y
+      bullet.m_translation.x = (float)ship.m_position.x + (distBetween.x * cannonOffset);
       
+      bullet.m_translation.y += -0.7;
       m_bullets.push_back(bullet);
-
-      bullet.m_translation = ship.m_translation - right * cannonOffset,
-
+      m_bullets.push_back(bullet);
       m_bullets.push_back(bullet);
 
     }
