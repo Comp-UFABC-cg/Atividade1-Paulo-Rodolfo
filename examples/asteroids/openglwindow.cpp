@@ -35,17 +35,10 @@ void OpenGLWindow::handleEvent(SDL_Event &event) {
   if (event.type == SDL_MOUSEBUTTONDOWN) {
     if (event.button.button == SDL_BUTTON_LEFT)
       m_gameData.m_input.set(static_cast<size_t>(Input::Fire));
-    if (event.button.button == SDL_BUTTON_RIGHT)
-      m_gameData.m_input.set(static_cast<size_t>(Input::Up));
   }
   if (event.type == SDL_MOUSEBUTTONUP) {
     if (event.button.button == SDL_BUTTON_LEFT)
       m_gameData.m_input.reset(static_cast<size_t>(Input::Fire));
-    if (event.button.button == SDL_BUTTON_RIGHT)
-      m_gameData.m_input.reset(static_cast<size_t>(Input::Up));
-  }
-  if (event.type == SDL_MOUSEMOTION) {
-   
   }
 }
 
