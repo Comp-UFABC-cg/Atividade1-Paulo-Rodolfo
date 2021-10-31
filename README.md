@@ -10,6 +10,7 @@ __Membros:__
 __Nome:__ Paulo Alexander Simões, <b>RA:</b>11084915 <br>
 __Nome:__ Rodolfo Azevedo dos Santos, <b>RA:</b> 11093514
 
+__Link para o jogo:__ https://comp-ufabc-cg.github.io/Atividade1-Paulo-Rodolfo/public/
 
 __Nome do Jogo:__ Starship Run <br>
 
