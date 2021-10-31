@@ -87,27 +87,19 @@ void Bullets::update(Ship &ship, const GameData &gameData, float deltaTime) {
 
       // Bullets are shot in the direction of the ship's forward vector
       glm::vec2 forward{glm::vec2{0.0f, 1.0f}};
-      glm::vec2 right{glm::vec2{1.05f, 0.0f}};
+      glm::vec2 right{glm::vec2{1.00f, 0.0f}};
       const auto cannonOffset{(11.0f / 15.5f) * ship.m_scale};
       const auto bulletSpeed{2.0f};
 
       Bullet bullet{.m_dead = false,
+                    .m_translation = ship.m_translation + right * cannonOffset,
                     .m_velocity = ship.m_velocity + forward * bulletSpeed};
-
-      // Ajuste eixo X
-      bullet.m_translation.x = (float)ship.m_position.x + (right.x * cannonOffset),                    
-      // Ajuste eixo Y
-      bullet.m_translation.y -= 0.7f;
-      bullet.m_translation.x += 0.05f;
-      m_bullets.push_back(bullet);
-
-      bullet.m_translation = ship.m_position.x - (right * cannonOffset);
       
-      // Ajuste eixo Y
-      bullet.m_translation.y -= 0.7f;
-      bullet.m_translation.x += 0.05f;
       m_bullets.push_back(bullet);
 
+      bullet.m_translation = ship.m_translation - right * cannonOffset,
+
+      m_bullets.push_back(bullet);
 
     }
   }

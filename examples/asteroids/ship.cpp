@@ -16,7 +16,7 @@ void Ship::initializeGL(GLuint program) {
   m_rotation = 1.0f;
   m_translation = glm::vec2(0);
   m_velocity = glm::vec2(0);
-  m_position = glm::vec2(0);
+  m_position = glm::vec2{0.0f,-6.5f};
 
   std::array<glm::vec2, 24> positions{
       // Ship body
@@ -50,7 +50,7 @@ void Ship::initializeGL(GLuint program) {
     position /= glm::vec2{15.5f, 15.5f};
 
   // Center in the base of the screen
-    position += glm::vec2{0.5f,-6.5f};
+    position += glm::vec2{0.0f,-6.5f};
   }
 
   const std::array indices{0, 1, 3,
