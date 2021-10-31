@@ -208,13 +208,24 @@ void OpenGLWindow::checkCollisions() {
   // Check collision between ship and asteroids
   for (const auto &asteroid : m_asteroids.m_asteroids) {
     const auto asteroidTranslation{asteroid.m_translation};
+   // float razao = m_ship.m_scale/asteroid.m_scale;
+    //float razao = 0.125/0.25;
+    glm::vec2 naveAjustada = glm::vec2(0);
+    naveAjustada.x =  m_ship.m_position.x;
+    naveAjustada.y =  m_ship.m_position.y;
+    glm::vec2 asteroidAjustado = asteroid.m_translation * (m_ship.m_scale/asteroid.m_scale);
     const auto distance{
-        glm::distance(m_ship.m_translation, asteroidTranslation)};
-
-    if (distance < m_ship.m_scale * 0.9f + asteroid.m_scale * 0.85f) {
-      m_gameData.m_state = State::GameOver;
-      m_restartWaitTimer.restart();
+      
+        glm::distance(naveAjustada, asteroidAjustado)};
+    if(m_restartWaitTimer.elapsed() > 6)
+    {
+      if (distance < m_ship.m_scale * 48.20f) 
+      {
+        m_gameData.m_state = State::GameOver;
+        m_restartWaitTimer.restart();
+      }
     }
+   
   }
 
   // Check collision between bullets and asteroids
@@ -229,7 +240,7 @@ void OpenGLWindow::checkCollisions() {
           const auto distance{
               glm::distance(bullet.m_translation, asteroidTranslation)};
 
-          if (distance < m_bullets.m_scale + asteroid.m_scale * 0.85f) {
+          if (distance < m_bullets.m_scale + asteroid.m_scale * 1.50f) {
             asteroid.m_hit = true;
             bullet.m_dead = true;
           }
