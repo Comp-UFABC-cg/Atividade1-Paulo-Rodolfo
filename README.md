@@ -3,7 +3,7 @@
 Este repositório contém o código fonte e link da aplicação rodando em <br>
 WebAssembly.
 
-A aplicação foi feita utilizando a seguinte arquitetura: C++, OpenGL e a biblioteca ABCG. <br>
+A aplicação foi implementada utilizando a seguinte arquitetura: C++, OpenGL e a biblioteca ABCG. <br>
 
 __Membros:__
 
@@ -15,14 +15,14 @@ __Nome do Jogo:__ Starship Run <br>
 
 <br>__Demonstração do Jogo:__ <br>
 
-![image](https://user-images.githubusercontent.com/30665585/139577778-4c272a8a-3f76-4998-89d4-ad74d4fdee03.png)
+![image](https://user-images.githubusercontent.com/30665585/139603272-f5a60399-ac66-44fc-b4f5-7023f0406ac9.png)
 
 <br>__Objetivo:__ Percorrer o mapa sem colidir com os asteróides. <br>
 
 <br>__Funcionalidades e comandos:__
 - Controle da nave através das setas do teclado (direita, esquerda, cima, baixo). Cada comando realiza as seguintes ações na nave, respectivamente: Move para a direita, move para a esquerda, acelera e freia.
-- Tiros: A nave atira balas a partir de seus dois canhões. Os tiros são acionados a partir do botão esquerdo do mouse ou tecla espaço do teclado.
-- Velocímetro: A velocidade é medida em metros/s (apresentada no visor superior esquerda) e aumenta/diminui conforme os comandos são realizados na nave
+- Tiros: A nave atira balas a partir da sua parte superior central. Os tiros são acionados a partir do botão esquerdo do mouse ou tecla espaço do teclado.
+- Velocímetro: A velocidade é medida em quilômetros/s (apresentada no visor superior esquerda) e aumenta/diminui conforme os comandos são realizados na nave
 
 <br>__Estados possíveis durante o jogo:__
 - Jogando: Quando a nave não colidiu com nenhum asteróide
@@ -32,7 +32,7 @@ __Nome do Jogo:__ Starship Run <br>
 <br>__Implementação:__
 
 O velocímetro é implementado através do ImGui a partir da exibição da variável que armazena a velocidadade vertical da nave (m_velocity.y originada e atualizada em ship.cpp - sua implementação será mostrada ao longo do relatório). <br>
-![image](https://user-images.githubusercontent.com/30665585/139579665-80a37375-8816-4321-9c4c-baf0f230b5a0.png)
+![image](https://user-images.githubusercontent.com/30665585/139600983-082bc03e-7056-4f13-a2b9-8b72298293d3.png)
 
 
 As mensagens ao jogador são implementadas através do ImGui no qual, a partir da vitória ou derrota são exibidos os textos na tela: "Perdeu!", "Venceu!": <br>
