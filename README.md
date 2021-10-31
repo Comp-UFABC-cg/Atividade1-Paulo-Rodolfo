@@ -29,5 +29,5 @@ __Nome do Jogo:__ Starship Run <br>
 - Perdeu: Quando a nave colide com algum asteróide
 - Ganhou: Quando a nave destruiu todos asteróides sem ser atingida
 
-
+<br>__Implementação:__
 
