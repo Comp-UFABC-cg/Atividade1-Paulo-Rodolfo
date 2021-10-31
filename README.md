@@ -32,7 +32,7 @@ __Nome do Jogo:__ Starship Run <br>
 <br>__Implementação:__
 
 O velocímetro é implementado através do ImGui a partir da exibição da variável que armazena a velocidadade vertical da nave (m_velocity.y originada e atualizada em ship.cpp - sua implementação será mostrada ao longo do relatório). <br>
-![image](https://user-images.githubusercontent.com/30665585/139579665-80a37375-8816-4321-9c4c-baf0f230b5a0.png)
+![image](https://user-images.githubusercontent.com/30665585/139600983-082bc03e-7056-4f13-a2b9-8b72298293d3.png)
 
 
 As mensagens ao jogador são implementadas através do ImGui no qual, a partir da vitória ou derrota são exibidos os textos na tela: "Perdeu!", "Venceu!": <br>
